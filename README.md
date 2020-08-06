@@ -1,46 +1,51 @@
 # api-testing-nodejs
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 ## Table of Contents
 
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Playground to figure out (primarily REST) API testing using Node.js environment and tools.
+
+For REST API endpoint we are using public and free [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+What things you need to install the software.
 
-```
-Give examples
-```
+- [Node.js](https://nodejs.org/en/) - must be pre-installed on you computer, rest will be handled by npm
+- [Mocha](https://mochajs.org/)
+- [chai](https://www.chaijs.com/)
+- [chai-http](https://www.chaijs.com/plugins/chai-http/)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Clone the repo
 
 ```
-Give the example
+git clone https://github.com/bednaJedna/api-testing-nodejs.git
 ```
 
-And repeat
+Install all dependencies by npm
 
 ```
-until finished
+npm install
+npm update
 ```
-
-End with an example of getting some data out of the system or using it for a little demo.
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+Run all tests
+
+```
+./node_modules/.bin/mocha test/spec/** -t 10000
+```
