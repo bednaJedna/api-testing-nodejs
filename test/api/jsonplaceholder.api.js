@@ -3,10 +3,18 @@ class JsonPlaceholderApi {
     this.domain = "https://jsonplaceholder.typicode.com";
     this.resPosts = "/posts";
     this.resComments = "/comments";
-    this.resAlbumns = "/albums";
+    this.resAlbums = "/albums";
     this.resPhotos = "/photos";
     this.resTodos = "/todos";
     this.resUsers = "/users";
+    this.resAll = [
+      this.resPosts,
+      this.resComments,
+      this.resAlbums,
+      this.resPhotos,
+      this.resTodos,
+      this.resUsers,
+    ];
   }
 
   /**
