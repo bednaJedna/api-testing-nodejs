@@ -5,40 +5,36 @@ const chaiHttp = require("chai-http");
 
 chai.use(chaiHttp);
 
+let response;
+
 describe("GET tests", function () {
   context(`GET ${JsonPlaceHolderApi.resPosts}`, function () {
-    it("response status is 200", function (done) {
-      chai
+    before(function () {
+      response = chai
         .request(JsonPlaceHolderApi.domain)
-        .get(JsonPlaceHolderApi.resPosts)
-        .end(function (err, res) {
-          if (err) done(err);
-          expect(res).to.have.status(200);
-          done();
-        });
+        .get(JsonPlaceHolderApi.resPosts);
+    });
+
+    it("response status is 200", function (done) {
+      response.then(function (res) {
+        expect(res).to.have.status(200);
+        done();
+      });
     });
 
     it("response is json", function (done) {
-      chai
-        .request(JsonPlaceHolderApi.domain)
-        .get(JsonPlaceHolderApi.resPosts)
-        .end(function (err, res) {
-          if (err) done(err);
-          expect(res).to.be.json;
-          done();
-        });
+      response.then(function (res) {
+        expect(res).to.be.json;
+        done();
+      });
     });
 
     it("response body is 100 item array", function (done) {
-      chai
-        .request(JsonPlaceHolderApi.domain)
-        .get(JsonPlaceHolderApi.resPosts)
-        .end(function (err, res) {
-          if (err) done(err);
-          expect(res.body).to.be.an("array");
-          expect(res.body.length).equals(100);
-          done();
-        });
+      response.then(function (res) {
+        expect(res.body).to.be.an("array");
+        expect(res.body.length).equals(100);
+        done();
+      });
     });
   });
 });
